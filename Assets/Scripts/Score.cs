@@ -35,5 +35,6 @@ public class Score : MonoBehaviour
      * Effacer les lignes
      * Tourner les pièces
      * (Faire un système de couleur pour terminer une ligne)
+     * Faire input axis vers le bas pour aller plus vite sur la dernière pièce
      */
 }

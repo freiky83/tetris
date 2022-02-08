@@ -17,11 +17,23 @@ public class Cube : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnMove += HandleMove;
+        GameManager.Instance.OnDeleteLine += HandleDelete;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnMove -= HandleMove;
+        GameManager.Instance.OnDeleteLine -= HandleDelete;
+    }
+
+    private void HandleDelete(int p_y)
+    {
+        if (p_y != m_cubePosY) return;
+
+        // del cube
+        Destroy(gameObject);
+        // del dans le tab
+        GameManager.Instance.DeleteCube(m_cubePosX,m_cubePosY);
     }
 
     public void SetPositions(int p_x, int p_y)
@@ -51,6 +63,7 @@ public class Cube : MonoBehaviour
             // on lock
             m_isLocked = true;
             onScore?.Invoke(10);
+            GameManager.Instance.CheckLine(m_cubePosY);
             GameManager.Instance.CreateCube();
             return;
         }
@@ -63,6 +76,8 @@ public class Cube : MonoBehaviour
 
     public void MoveHorizontal(int p_dx)
     {
+        if (m_isLocked) return;
+
         int posX = m_cubePosX + p_dx;
         
         if (GameManager.Instance.GetStatus(posX, m_cubePosY) == GameManager.Status.VIDE)
