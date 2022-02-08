@@ -15,12 +15,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField, Tooltip("X, Y")] private int m_boardHeight = 25;
 
     [SerializeField, Tooltip("Vitesse de descente")]
-    private float m_tickRate = 0.1f;
+    private float m_tickRate = 1;
     [SerializeField, Tooltip("Vitesse de translation")]
     private float m_moveRate = 0.1f;
 
     private Cube m_cubeInstance;
     private List<Cube> m_cubes = new List<Cube>();
+
+    public delegate void MoveDelegate();
+    public MoveDelegate OnMove;
     public enum Status
     {
         VIDE = 0,
@@ -49,7 +52,8 @@ public class GameManager : Singleton<GameManager>
         m_elapsedTime += Time.deltaTime;
         if (m_elapsedTime >= m_tickRate)
         {
-            MoveDown();
+            //MoveDown();
+            OnMove?.Invoke(); // ?. si OnMove n'est pas nul
             m_elapsedTime = 0;
         }
     }
