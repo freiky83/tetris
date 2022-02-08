@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
 
     public delegate void MoveDelegate();
     public MoveDelegate OnMove;
+    //public MoveDelegate onInputMove; // peut se faire pour le déplacement horizontal
     public enum Status
     {
         VIDE = 0,
@@ -53,7 +54,7 @@ public class GameManager : Singleton<GameManager>
         if (m_elapsedTime >= m_tickRate)
         {
             //MoveDown();
-            OnMove?.Invoke(); // ?. si OnMove n'est pas nul
+            OnMove?.Invoke(); // ?. si OnMove n'est pas nul (appel de manière propre)
             m_elapsedTime = 0;
         }
     }
@@ -73,7 +74,7 @@ public class GameManager : Singleton<GameManager>
         // Déplacer la pièce courante vers le bas
         for (int i = 0; i < m_cubes.Count; i++)
         {
-            m_cubes[i].MoveDown();
+            //m_cubes[i].MoveDown();
         }
     }
     
@@ -128,8 +129,6 @@ public class GameManager : Singleton<GameManager>
     public void ClearRow()
     {
         // verif ligne pleine
-        
-        
         
         // clean ligne pleine (visuel + board)
     }

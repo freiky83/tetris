@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class Cube : MonoBehaviour
 {
@@ -8,6 +10,19 @@ public class Cube : MonoBehaviour
     private int m_cubePosY;
 
     private bool m_isLocked = false;
+    
+    public delegate void ScoreDelegate(int p_score);
+
+    public static ScoreDelegate onScore;
+    private void OnEnable()
+    {
+        GameManager.Instance.OnMove += HandleMove;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnMove -= HandleMove;
+    }
 
     public void SetPositions(int p_x, int p_y)
     {
@@ -16,7 +31,7 @@ public class Cube : MonoBehaviour
         m_cubePosY = p_y;
     }
 
-    public void MoveDown()
+    public void HandleMove()
     {
 
         if (m_isLocked)
@@ -35,6 +50,7 @@ public class Cube : MonoBehaviour
             Debug.Log("On bloque le cube",this);
             // on lock
             m_isLocked = true;
+            onScore?.Invoke(10);
             GameManager.Instance.CreateCube();
             return;
         }
