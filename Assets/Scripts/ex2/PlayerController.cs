@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour
     private void Action()
     {
         // ATTACK 1
-        if(Input.GetKeyDown(KeyCode.A)) m_weapon.Attack(this.transform, foe.transform);
+        if(Input.GetKeyDown(KeyCode.A)) m_weapon.Attack(this.transform, foe);
         // ATTACK 2
-        if(Input.GetKeyDown(KeyCode.E)) m_weapon.AttackSpecial(this.transform, foe.transform);
+        if(Input.GetKeyDown(KeyCode.E)) m_weapon.AttackSpecial(this.transform, foe);
     }
 
     private void CamFollow()

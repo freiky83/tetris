@@ -347,29 +347,11 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &1041311308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2490599532872605748, guid: c078c6e4d29c63244a4032b54e272939, type: 3}
-  m_PrefabInstance: {fileID: 2490599533309920888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1041311309 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 2490599532872605749, guid: c078c6e4d29c63244a4032b54e272939, type: 3}
   m_PrefabInstance: {fileID: 2490599533309920888}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1041311315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041311308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5defda01ac150f438f506e40d0dd99b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_arrow: {fileID: 697944103}
 --- !u!1 &1197256796
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +457,6 @@ GameObject:
   - component: {fileID: 1818993675}
   - component: {fileID: 1818993674}
   - component: {fileID: 1818993673}
-  - component: {fileID: 1818993672}
   - component: {fileID: 1818993677}
   m_Layer: 0
   m_Name: Foe
@@ -484,22 +465,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1818993672
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818993671}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &1818993673
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -640,10 +605,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 791462453026480726, guid: 93849fee26323224b9d357dfca5e7270, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 791462453026480728, guid: 93849fee26323224b9d357dfca5e7270, type: 3}
       propertyPath: m_Name
       value: Arrow
@@ -661,6 +622,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 891528364974283069, guid: c078c6e4d29c63244a4032b54e272939, type: 3}
+      propertyPath: m_arrow
+      value: 
+      objectReference: {fileID: 697944103}
     - target: {fileID: 2490599532872605738, guid: c078c6e4d29c63244a4032b54e272939, type: 3}
       propertyPath: m_RootOrder
       value: 3
