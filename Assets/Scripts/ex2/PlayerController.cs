@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     private Foe foe;
 
-
+    [Tooltip("Caméra 3eme personne")][SerializeField]
+    private Camera mainCam;
+    
     private void Start()
     {
         m_weapon = GetComponent<IWeapon>();
