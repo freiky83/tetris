@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         Deplacement();
         Action();
+        CamFollow();
     }
 
     private void Deplacement()
@@ -54,6 +55,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A)) m_weapon.Attack(this.transform, foe.transform);
         // ATTACK 2
         if(Input.GetKeyDown(KeyCode.E)) m_weapon.AttackSpecial(this.transform, foe.transform);
+    }
+
+    private void CamFollow()
+    {
+        mainCam.transform.position = new Vector3(transform.position.x, mainCam.transform.position.y, transform.position.z - 6f);
     }
 
 }

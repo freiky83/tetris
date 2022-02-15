@@ -9,6 +9,11 @@ public class Arrow : MonoBehaviour
     
     private Transform m_targetTransform;
 
+    public void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Throw(Transform p_originTransform, Transform p_targetTransform)
     {
         gameObject.SetActive(true);
